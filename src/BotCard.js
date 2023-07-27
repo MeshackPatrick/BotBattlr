@@ -1,7 +1,10 @@
 import React from "react";
 
-const BotCard = ({ bot }) => {
+const BotCard = ({ bot,onEnlist }) => {
     const { id, name, health, damage, armor, bot_class, catchphrase, avatar_url } = bot;
+    const handleEnlist=()=>{
+        onEnlist(bot)
+    }
 
     return (
         <div className="bot-card">
@@ -12,6 +15,7 @@ const BotCard = ({ bot }) => {
             <p>Armor: {armor}</p>
             <p>Class: {bot_class}</p>
             <p>Catchphrase: {catchphrase}</p>
+            <button onClick={handleEnlist}>Enlist</button>
         </div>
     );
 };
