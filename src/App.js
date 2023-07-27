@@ -27,6 +27,18 @@ const App = () => {
         setEnlistedBots(enlistedBots.filter((b)=>b.id !== bot.id))
     }
 
+    const handleDischargeBot=(bot)=>{
+        //send a delete request to the backend to delete the bot
+        fetch(`http://localhost:3000/bots/${bot.id}`,{
+            method:"DELETE",
+        })
+            .then(()=>{
+                //after successful deletion on backend,also remove the bot from the frontend
+                setEnlistedBots(enlistedBots.filter((b)=>b.id !==bot.id))
+            })
+            .catch((error)=>console.error("Error discharging bot :",error))
+    }
+
     return (
         <div className="container">
             <header>
@@ -39,7 +51,11 @@ const App = () => {
                     <BotCollection bots={bots} onEnlist={handleEnlistBot} />
                 </div>
                 <div className="your-bot-army">
-                    <YourBotArmy enlistedBots={enlistedBots} onRelease={handleReleaseBot}/>
+                    <YourBotArmy
+                        enlistedBots={enlistedBots}
+                        onRelease={handleReleaseBot}
+                        onDischarge={handleDischargeBot}
+                    />
                 </div>
             </section>
         </div>

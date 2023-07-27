@@ -1,10 +1,14 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-const YourBotArmy = ({ enlistedBots,onRelease }) => {
+const YourBotArmy = ({ enlistedBots,onRelease,onDischarge }) => {
 
     const  handleRelease=(bot)=>{
         onRelease(bot)
+    }
+
+    const handleDischarge=(bot)=>{
+        onDischarge(bot)
     }
     return (
         <div>
@@ -19,6 +23,7 @@ const YourBotArmy = ({ enlistedBots,onRelease }) => {
                     <p>Class: {bot.bot_class}</p>
                     <p>Catchphrase: {bot.catchphrase}</p>
                     <button onClick={() => handleRelease(bot)}>Release</button>
+                    <button className="discharge-button" onClick={()=>handleDischarge(bot)}>X</button>
                 </div>
             ))}
         </div>
