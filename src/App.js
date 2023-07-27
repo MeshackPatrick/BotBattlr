@@ -22,6 +22,11 @@ const App = () => {
         }
     };
 
+    const handleReleaseBot=(bot)=>{
+        //filter out the  released bot from the enlistedBots
+        setEnlistedBots(enlistedBots.filter((b)=>b.id !== bot.id))
+    }
+
     return (
         <div className="container">
             <header>
@@ -34,7 +39,7 @@ const App = () => {
                     <BotCollection bots={bots} onEnlist={handleEnlistBot} />
                 </div>
                 <div className="your-bot-army">
-                    <YourBotArmy enlistedBots={enlistedBots} />
+                    <YourBotArmy enlistedBots={enlistedBots} onRelease={handleReleaseBot}/>
                 </div>
             </section>
         </div>
