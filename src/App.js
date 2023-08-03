@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import BotCollection from "./BotCollection";
 import YourBotArmy from "./YourBotArmy";
@@ -42,20 +41,22 @@ const App = () => {
     return (
         <div className="container">
             <header>
-                <h1>
-                    Welcome to <strong>Bot Battlr</strong>, the one and only spot in the known universe where you can custom build your own Bot Army!
-                </h1>
+                <h1>Welcome To Bot Battlr</h1>
+                <p>The one and only spot in the known universe where you can custom
+                    build your own Bot Army!</p>
             </header>
             <section>
-                <div className="bot-list">
-                    <BotCollection bots={bots} onEnlist={handleEnlistBot} />
-                </div>
                 <div className="your-bot-army">
                     <YourBotArmy
                         enlistedBots={enlistedBots}
                         onRelease={handleReleaseBot}
                         onDischarge={handleDischargeBot}
                     />
+
+                </div>
+                <div className="bot-list">
+                    <BotCollection bots={bots} onEnlist={handleEnlistBot} />
+
                 </div>
             </section>
         </div>

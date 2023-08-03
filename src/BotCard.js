@@ -1,7 +1,7 @@
 import React from "react";
 
 const BotCard = ({ bot,onEnlist }) => {
-    const { id, name, health, damage, armor, bot_class, catchphrase, avatar_url } = bot;
+    const { name, health, damage, armor, bot_class, catchphrase, avatar_url } =bot;
     const handleEnlist=()=>{
         onEnlist(bot)
     }
