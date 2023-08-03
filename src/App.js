@@ -8,7 +8,7 @@ const App = () => {
     const [enlistedBots, setEnlistedBots] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/bots")
+        fetch("https://json-bot-data.onrender.com/bots")
             .then((response) => response.json())
             .then((data) => setBots(data))
             .catch((error) => console.error("Error fetching bots:", error));
@@ -28,7 +28,7 @@ const App = () => {
 
     const handleDischargeBot=(bot)=>{
         //send a delete request to the backend to delete the bot
-        fetch(`http://localhost:3000/bots/${bot.id}`,{
+        fetch(`https://json-bot-data.onrender.com/bots/${bot.id}`,{
             method:"DELETE",
         })
             .then(()=>{
